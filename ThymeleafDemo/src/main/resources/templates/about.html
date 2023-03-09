@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+</head>
+<body>
+	<div class="container" text-align="center">
+	<h1 > Hello world..!!</h1>
+	<h2 th:text="${ #strings.toUpperCase(name)}"> </h2>
+	<p>Length of String is : <strong th:text="${ #strings.length(name)}"></strong></p>
+	
+	<h2 th:text="${currentdate}"> </h2>
+	
+	  
+	<div th:with="a=5, b=10, n=${name}"> 
+	
+		<h3>Value of a is : <span th:text="${a}"></span> </h3>
+		
+		<h3 th:text="'Value of b is : '+${b}"></h3>
+		
+		<h3> value of n is : <span th:text="${n}"></span></h3>
+		
+		<h3 th:text="'value of '+${a}+' and '+${b}+' is '+${a+b}"></h3>
+		
+	</div>
+	</div>
+</body>
+</html>
