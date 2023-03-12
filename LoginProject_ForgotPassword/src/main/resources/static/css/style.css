@@ -1,3 +1,6 @@
+
+/* Login & Register Page CSS */
+
 *{
 	padding: 0;
 	margin: 0;
@@ -219,4 +222,11 @@ a:hover{
 	.login-content{
 		justify-content: center;
 	}
+}
+
+/*===========================================================
+						 Home Page CSS */
+.custom-search-btn {
+  padding: 0.25rem 0.5rem;
+  font-size: 0.8rem;
 }
