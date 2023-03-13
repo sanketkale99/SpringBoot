@@ -113,7 +113,7 @@ public class BookController {
 			//System.out.println(book);
 			return ResponseEntity.ok().body(book);
 		} catch (Exception e) {
-			// TODO Auto-generated catch block
+			
 			e.printStackTrace();
 			return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).build();
 		}
@@ -121,7 +121,7 @@ public class BookController {
 	
 	//delete book handler
 //	@DeleteMapping("books/{Id}")
-//	public void deleteBook(@PathVariable("Id") int Id) // bind id with apth variable
+//	public void deleteBook(@PathVariable("Id") int Id) // bind id with path variable
 //	{
 //		this.bookService.deleteBook(Id);
 //	}

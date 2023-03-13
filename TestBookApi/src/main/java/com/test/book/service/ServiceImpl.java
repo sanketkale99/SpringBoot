@@ -23,19 +23,6 @@ public class ServiceImpl implements Service{
 	public List<Book> getAllBooks() {
 		return list;
 	}
-
-	//get single book by id
-//	@Override
-//	public Book getBookById(int Id) {
-//		Book b1=null;
-//		for(Book b:list) {
-//			if(b.getId()==Id) {
-//				b1=b;
-//				break;
-//			}
-//		}
-//		return b1;
-//	}
 	
 	public Book getBookById(int Id) {
 		Book book=null;
