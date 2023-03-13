@@ -17,14 +17,14 @@ public class Course {
 	private String name;
 	private String description;
 	private String duration;
-	private int fees;
+	private int fee;
 
-	public Course(int id, String name, String description, String duration, int fees) {
+	public Course(int id, String name, String description, String duration, int fee) {
 		this.id = id;
 		this.name = name;
 		this.description = description;
 		this.duration = duration;
-		this.fees = fees;
+		this.fee = fee;
 	}
 
 	public Course() {
@@ -62,18 +62,18 @@ public class Course {
 		this.duration = duration;
 	}
 
-	public int getFees() {
-		return fees;
+	public int getFee() {
+		return fee;
 	}
 
-	public void setFees(int fees) {
-		this.fees = fees;
+	public void setFee(int fees) {
+		this.fee = fees;
 	}
 
 	@Override
 	public String toString() {
 		return "Course [id=" + id + ", name=" + name + ", description=" + description + ", duration=" + duration
-				+ ", fees=" + fees + "]";
+				+ ", fee=" + fee + "]";
 	}
 
 }
