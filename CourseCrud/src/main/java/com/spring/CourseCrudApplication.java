@@ -14,13 +14,12 @@ import com.spring.service.CourseService;
 @SpringBootApplication
 public class CourseCrudApplication {
 
-
 	public static void main(String[] args) {
 
 		ApplicationContext context = SpringApplication.run(CourseCrudApplication.class, args);
 
-		CourseService courseService=context.getBean(CourseService.class);
-		
+		CourseService courseService = context.getBean(CourseService.class);
+
 		Scanner scanner = new Scanner(System.in);
 		int ch = 0;
 		do {
@@ -40,7 +39,7 @@ public class CourseCrudApplication {
 				addCourse(scanner, courseService);
 				break;
 			case 2:
-				viewAllCourses( courseService);
+				viewAllCourses(courseService);
 				break;
 			case 3:
 				viewCourseById(scanner, courseService);
@@ -91,8 +90,9 @@ public class CourseCrudApplication {
 		} else {
 			System.out.println("List of all courses:");
 			for (Course course : courses) {
-				System.out.println("Course Id :"+course.getId() + " Course Name : " + course.getName() + "Course Description :" + course.getDescription() + "Course Duration : "
-						+ course.getDuration() +"Course Fee : " +course.getFee()+"\n");
+				System.out.println("Course Id :[" + course.getId() + "] Course Name :[" + course.getName()
+						+ "] Course Description :[" + course.getDescription() + "] Course Duration :["
+						+ course.getDuration() + "] Course Fee :[" + course.getFee() + "]\n");
 			}
 		}
 	}
@@ -107,8 +107,9 @@ public class CourseCrudApplication {
 			System.out.println("Course not found!");
 		} else {
 			System.out.println("Course details:");
-			System.out.println("Course Id :"+course.getId() + " Course Name : " + course.getName() + "Course Description :" + course.getDescription() + "Course Duration : "
-					+ course.getDuration() +"Course Fee : " +course.getFee()+"\n");
+			System.out.println("Course Id :[" + course.getId() + "] Course Name :[" + course.getName()
+					+ "] Course Description :[" + course.getDescription() + "] Course Duration :["
+					+ course.getDuration() + "] Course Fee :[" + course.getFee() + "]\n");
 		}
 	}
 
@@ -119,28 +120,30 @@ public class CourseCrudApplication {
 		Course course = courseService.getCourseById(id);
 		if (course == null) {
 			System.out.println("Course not found!");
-		} else {
+		} else
+		{
 			System.out.print("Enter course name (press enter to keep current value '" + course.getName() + "'): ");
 			String name = scanner.nextLine();
 			if (!name.isBlank()) {
 				course.setName(name);
 			}
 
+			
 			System.out.print(
-					"Enter course description (press enter to keep current value '" + course.getDescription() + "'): ");
+					"\n Enter course description (press enter to keep current value '" + course.getDescription() + "'): ");
 			String description = scanner.nextLine();
 			if (!description.isBlank()) {
 				course.setDescription(description);
 			}
 
 			System.out.print(
-					"Enter course duration (press enter to keep current value '" + course.getDuration() + "'): ");
+					"\n Enter course duration (press enter to keep current value '" + course.getDuration() + "'): ");
 			String duration = scanner.nextLine();
 			if (!duration.isBlank()) {
 				course.setDuration(duration);
 			}
 
-			System.out.print("Enter course fee (press enter to keep current value '" + course.getFee() + "'): ");
+			System.out.print("\n Enter course fee (press enter to keep current value '" + course.getFee() + "'): ");
 			String feeString = scanner.nextLine();
 			if (!feeString.isBlank()) {
 				int fee = Integer.parseInt(feeString);
