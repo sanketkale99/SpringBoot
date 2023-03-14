@@ -14,47 +14,40 @@ import com.example.demo.service.StudentService;
 @Controller
 public class StudentController {
 
-	@Autowired  //obj created by framework itself and we can use that obj in any class 
+	@Autowired
 	private StudentService studentService;
-	
-	//display list of employees
-	@GetMapping("/") 	//mapping HTTP get  request 
+
+	// display list of employees
+	@GetMapping("/")
 	public String viewHomePage(Model model) {
-		model.addAttribute("listStudents",studentService.getAllStudents());
+		model.addAttribute("listStudents", studentService.getAllStudents());
 		return "index";
 	}
-	
+
 	@GetMapping("/showNewStudentForm")
 	public String showNewStudentForm(Model model) {
-		Student student=new Student();
+		Student student = new Student();
 		model.addAttribute("student", student);
 		return "new_student";
 	}
-	
+
 	@PostMapping("/saveStudent")
-	public String saveStudent(@ModelAttribute("student")Student student) {
-		//save student to database
+	public String saveStudent(@ModelAttribute("student") Student student) {
 		studentService.saveStudent(student);
 		return "redirect:/";
 	}
-	
+
 	@GetMapping("/showFormForUpdate/{id}")
-	public String showFormForUpdate(@PathVariable (value = "id")long id, Model model) {
-		
-		//get student from service 
-		Student student=studentService.getStudentById(id);
-		
-		//set student as model attribute to pre-populate the form 
+	public String showFormForUpdate(@PathVariable(value = "id") long id, Model model) {
+		Student student = studentService.getStudentById(id);
 		model.addAttribute("student", student);
 		return "update_student";
 	}
-	
+
 	@GetMapping("/deleteStudent/{id}")
-	public String deleteStudent(@PathVariable(value = "id")long id) {
-		
+	public String deleteStudent(@PathVariable(value = "id") long id) {
 		this.studentService.deleteStudentById(id);
 		return "redirect:/";
 	}
-	
-	
+
 }

@@ -10,7 +10,7 @@ import com.example.demo.model.Student;
 import com.example.demo.repository.StudentRepository;
 
 @Service
-public class StudentServiceImpl implements StudentService{
+public class StudentServiceImpl implements StudentService {
 
 	@Autowired
 	private StudentRepository studentRepository;
@@ -23,18 +23,17 @@ public class StudentServiceImpl implements StudentService{
 	@Override
 	public void saveStudent(Student student) {
 		this.studentRepository.save(student);
-		
+
 	}
 
 	@Override
 	public Student getStudentById(long id) {
-		Optional<Student> optional=studentRepository.findById(id);
-		Student student=null;
-		if(optional.isPresent()) {
-			student=optional.get();
-		}
-		else {
-			throw new RuntimeException("Student not found for id : "+id);
+		Optional<Student> optional = studentRepository.findById(id);
+		Student student = null;
+		if (optional.isPresent()) {
+			student = optional.get();
+		} else {
+			throw new RuntimeException("Student not found for id : " + id);
 		}
 		return student;
 	}

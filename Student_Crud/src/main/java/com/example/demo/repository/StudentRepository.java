@@ -5,7 +5,7 @@ import org.springframework.stereotype.Repository;
 
 import com.example.demo.model.Student;
 
-@Repository 		//to connect with db like crud opearation 
+@Repository 		
 public interface StudentRepository extends JpaRepository<Student, Long>{
 
 }

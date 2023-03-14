@@ -88,10 +88,10 @@ public class CourseCrudApplication {
 		if (courses.isEmpty()) {
 			System.out.println("No courses found!");
 		} else {
-			System.out.println("List of all courses:");
+			System.out.println("\t\tList of all courses :");
 			for (Course course : courses) {
 				System.out.println("Course Id :[" + course.getId() + "] Course Name :[" + course.getName()
-						+ "] Course Description :[" + course.getDescription() + "] Course Duration :["
+						+ "] Course Description :[" + course.getDescription() + "] \n Course Duration :["
 						+ course.getDuration() + "] Course Fee :[" + course.getFee() + "]\n");
 			}
 		}
@@ -106,9 +106,9 @@ public class CourseCrudApplication {
 		if (course == null) {
 			System.out.println("Course not found!");
 		} else {
-			System.out.println("Course details:");
+			System.out.println("\t\tCourse details :");
 			System.out.println("Course Id :[" + course.getId() + "] Course Name :[" + course.getName()
-					+ "] Course Description :[" + course.getDescription() + "] Course Duration :["
+					+ "] Course Description :[" + course.getDescription() + "] \n Course Duration :["
 					+ course.getDuration() + "] Course Fee :[" + course.getFee() + "]\n");
 		}
 	}
@@ -120,17 +120,17 @@ public class CourseCrudApplication {
 		Course course = courseService.getCourseById(id);
 		if (course == null) {
 			System.out.println("Course not found!");
-		} else
-		{
+		} else {
+			System.out.println();
+			String i = scanner.nextLine();
 			System.out.print("Enter course name (press enter to keep current value '" + course.getName() + "'): ");
 			String name = scanner.nextLine();
 			if (!name.isBlank()) {
 				course.setName(name);
 			}
 
-			
-			System.out.print(
-					"\n Enter course description (press enter to keep current value '" + course.getDescription() + "'): ");
+			System.out.print("\n Enter course description (press enter to keep current value '"
+					+ course.getDescription() + "'): ");
 			String description = scanner.nextLine();
 			if (!description.isBlank()) {
 				course.setDescription(description);
