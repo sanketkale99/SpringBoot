@@ -63,13 +63,8 @@ public class UserServiceImpl implements UserService {
 	}
 
 	public User getUserByName(String username) {
-		Optional<User> optional = Optional.ofNullable(userRepository.getByUsername(username));
-		User user = null;
-		if (optional.isPresent()) {
-			user = optional.get();
-		} else {
-			throw new RuntimeException("User not found for name : " + username);
-		}
-		return user;
+	    Optional<User> optional = Optional.ofNullable(userRepository.getByUsername(username));
+	    return optional.orElseThrow(() -> new RuntimeException("User not found for name : " + username));
 	}
+
 }
