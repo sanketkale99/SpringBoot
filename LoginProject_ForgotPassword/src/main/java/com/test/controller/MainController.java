@@ -21,29 +21,30 @@ public class MainController {
 		return "login";
 	}
 
+//	@GetMapping("/")
+//	public String viewHomePage(@PathVariable(value = "id") long id, Model model) {
+////		model.addAttribute("user", userService.getUserByName());
+//		return "home";
+//	}
+
 	@GetMapping("/")
-	public String viewHomePage(){//@PathVariable(value = "id") long id, Model model) {
-//		model.addAttribute("user", userService.getUserByName());
+	public String viewHomePage() {
 		return "home";
 	}
-	
+
 //	@GetMapping("/users/{username}")
 //	public ResponseEntity<User> getUserByUsername(@PathVariable String username) {
 //	    User user = userService.getUserByName(username);
 //	    return ResponseEntity.ok(user);
 //	}
 
-
 	@GetMapping("/showFormForUpdate")
-	public String showFormForUpdate()//@PathVariable(value = "id") long id, Model model) {
-//		/*User user = userService.getUser(id);
-//		model.addAttribute("user", user);*/
-	{	return "update_user";
+	public String showFormForUpdate() {
+		return "update_user";
 	}
 
 	@GetMapping("/deleteUser")
 	public String deleteStudent() {
-
 		return "redirect:/";
 	}
 }

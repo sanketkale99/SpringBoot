@@ -9,8 +9,6 @@ import com.test.entity.User;
 public interface UserService extends UserDetailsService{
 	
 	User save(UserRegisterDto registerDto);
-
-	User getUser(long id);
 	
 	User getUserByName(String username);
 }

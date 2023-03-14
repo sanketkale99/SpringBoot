@@ -19,19 +19,28 @@
 			registered..!!!</div>
 	</div>
 
-	<!-- 	<img class="wave" src="img/login video.mp4">-->
 	<div class="container">
 		<div class="img">
 			<img src="img/bg.svg">
 		</div>
-
-
 
 		<!-- registration form Username;Email;Password;-->
 		<div class="login-content">
 			<form th:action="@{/register}" method="post" th:object="${user}">
 				<img src="img/avatar.svg">
 				<h2 class="title">Register</h2>
+
+				<div class="input-div one">
+					<div class="i">
+						<i class="fas fa-user"></i>
+					</div>
+
+					<div class="div">
+						<input id="Name" type="text" placeholder="Name" class="input"
+							th:field="*{Name}" required="required">
+					</div>
+
+				</div>
 				<div class="input-div one">
 					<div class="i">
 						<i class="fas fa-user"></i>
@@ -51,6 +60,16 @@
 					</div>
 				</div>
 
+				<div class="input-div one">
+					<div class="i">
+						<i class="fas fa-user"></i>
+					</div>
+					<div class="div">
+						<input id="City" type="text" placeholder="City" class="input"
+							th:field="*{City}" required autofocus="autofocus">
+					</div>
+				</div>
+
 				<div class="input-div pass">
 					<div class="i">
 						<i class="fas fa-lock"></i>
@@ -62,7 +81,7 @@
 					</div>
 				</div>
 
-				<div class="input-div pass">
+				<!-- <div class="input-div pass">
 					<div class="i">
 						<i class="fas fa-lock"></i>
 					</div>
@@ -70,21 +89,15 @@
 						<input id="Password" type="password"
 							placeholder="Confirm Password" class="input">
 					</div>
-				</div>
+				</div> -->
 
 				<input type="submit" class="btn" value="Register"> <span>Already
 					have an account? <a th:href="@{/login}">Login Here</a>
 				</span>
 
-				<!-- <div>
-					<p style="display: inline;">
-						Already have an account? <a th:href="@{/index}">Login Here</a>
-					</p>
-				</div> -->
 			</form>
 		</div>
 	</div>
-	<script type="text/javascript" src="js/main.js"></script>
 </body>
 </html>
 

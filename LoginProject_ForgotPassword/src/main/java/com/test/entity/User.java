@@ -1,7 +1,5 @@
 package com.test.entity;
 
-import java.util.Collection;
-
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -10,26 +8,26 @@ import javax.persistence.Id;
 import javax.persistence.Table;
 import javax.persistence.UniqueConstraint;
 
-import org.springframework.security.core.GrantedAuthority;
-import org.springframework.security.core.userdetails.UserDetails;
-
-
 
 @Entity
-@Table(name="loginapp", uniqueConstraints = @UniqueConstraint(columnNames = "Email") )
+@Table(name="userapp", uniqueConstraints = @UniqueConstraint(columnNames = "Email") )
 public class User //implements UserDetails
 {
-
-	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
+	
+	@Column(name = "Name")
+	private String name;
 	
 	@Column(name = "Username")
 	private String username;
 	
 	@Column(name = "Email")
 	private String email; 
+	
+	@Column(name = "City")
+	private String city;
 	
 	@Column(name = "Password")
 	private String password;
@@ -38,11 +36,14 @@ public class User //implements UserDetails
 		
 	}
 
-	public User(String username, String email, String password) {
+	public User(Long id, String name, String username, String email, String city, 
+			String password) {
 		super();
-		
+		this.id = id;
+		this.name = name;
 		this.username = username;
 		this.email = email;
+		this.city = city;
 		this.password = password;
 	}
 
@@ -70,31 +71,30 @@ public class User //implements UserDetails
 		this.password = password;
 	}
 
-	/*
-	@Override
-    public Collection<? extends GrantedAuthority> getAuthorities() {
-        return authorities;
-    }
+	public Long getId() {
+		return id;
+	}
 
-	   @Override
-	    public boolean isAccountNonExpired() {
-	        return true;
-	    }
+	public void setId(Long id) {
+		this.id = id;
+	}
 
-	    @Override
-	    public boolean isAccountNonLocked() {
-	        return true;
-	    }
+	public String getName() {
+		return name;
+	}
 
-	    @Override
-	    public boolean isCredentialsNonExpired() {
-	        return true;
-	    }
+	public void setName(String name) {
+		this.name = name;
+	}
 
-	    @Override
-	    public boolean isEnabled() {
-	        return active;
-	    }
-	*/
+	public String getCity() {
+		return city;
+	}
+
+	public void setCity(String city) {
+		this.city = city;
+	}
+
+	
 	
 }

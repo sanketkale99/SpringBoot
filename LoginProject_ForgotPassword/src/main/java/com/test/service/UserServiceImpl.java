@@ -33,8 +33,8 @@ public class UserServiceImpl implements UserService {
 
 	@Override
 	public User save(UserRegisterDto registerDto) {
-		User user = new User(registerDto.getUsername(), registerDto.getEmail(),
-				passwordEncoder.encode(registerDto.getPassword()));
+		User user = new User(null, registerDto.getName(), registerDto.getUsername(), registerDto.getEmail(),
+				registerDto.getCity(), passwordEncoder.encode(registerDto.getPassword()));
 		return userRepository.save(user);
 	}
 
@@ -49,22 +49,15 @@ public class UserServiceImpl implements UserService {
 		}
 		return new org.springframework.security.core.userdetails.User(user.getEmail(), user.getPassword(),
 				mapRolesToAuthorities(user));
-
 	}
 
 	private Collection<? extends GrantedAuthority> mapRolesToAuthorities(User user) {
 		return Collections.singleton(new SimpleGrantedAuthority("ROLE_USER"));
 	}
 
-	@Override
-	public User getUser(long id) {
-
-		return null;
-	}
-
 	public User getUserByName(String username) {
-	    Optional<User> optional = Optional.ofNullable(userRepository.getByUsername(username));
-	    return optional.orElseThrow(() -> new RuntimeException("User not found for name : " + username));
+		Optional<User> optional = Optional.ofNullable(userRepository.getByUsername(username));
+		return optional.orElseThrow(() -> new RuntimeException("User not found for name : " + username));
 	}
 
 }
