@@ -12,6 +12,7 @@ import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
+
 import com.test.dto.UserRegisterDto;
 import com.test.entity.User;
 import com.test.repository.UserRepository;
@@ -53,5 +54,22 @@ public class UserServiceImpl implements UserService {
 
 	private Collection<? extends GrantedAuthority> mapRolesToAuthorities(User user) {
 		return Collections.singleton(new SimpleGrantedAuthority("ROLE_USER"));
+	}
+
+	@Override
+	public User getUser(long id) {
+
+		return null;
+	}
+
+	public User getUserByName(String username) {
+		Optional<User> optional = Optional.ofNullable(userRepository.getByUsername(username));
+		User user = null;
+		if (optional.isPresent()) {
+			user = optional.get();
+		} else {
+			throw new RuntimeException("User not found for name : " + username);
+		}
+		return user;
 	}
 }

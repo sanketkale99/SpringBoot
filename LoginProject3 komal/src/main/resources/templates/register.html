@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+
+<title>Registration Page</title>
+<link rel="stylesheet" th:href="@{/css/style.css}">
+</head>
+<body>
+
+	<!-- Success message  -->
+	<div th:if="${param.success}">
+		<div class="alert alert-info">You've successfully
+			registered..!!!</div>
+	</div>
+
+	<div class="login-content">
+		<form th:action="@{/register}" method="post" th:object="${user}">
+			<h2 class="title">Register</h2>
+
+			<div class="div">
+				<input id="Username" type="text" placeholder="Username"
+					class="input" th:field="*{Username}" required="required">
+			</div>
+
+			<div class="div">
+				<input id="email" type="email" placeholder="Email" class="input"
+					th:field="*{Email}" required autofocus="autofocus">
+			</div>
+
+
+			<div class="div">
+				<input id="Password" type="password" placeholder="Password"
+					class="input" th:field="*{Password}" required autofocus="autofocus">
+			</div>
+
+			<div class="div">
+				<input id="Password" type="password" placeholder="Confirm Password"
+					class="input">
+			</div>
+			<input type="submit" class="btn" value="Register"> <span>Already
+				have an account? <a th:href="@{/login}">Login Here</a>
+			</span>
+
+
+		</form>
+	</div>
+</body>
+</html>
+

@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+<link th:href="@{/css/style.css}" rel="stylesheet" />
+
+<meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Student Management System</title>
+<link rel="stylesheet"
+	href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
+</head>
+<body>
+	<div class="card">
+		<div class="card-header">
+			<img class="profile-picture"
+				src="https://example.com/profile-picture.jpg"
+				alt="User Profile Picture">
+			<h1>Update User</h1>
+		</div>
+		<div class="card-body">
+
+            <input type="hidden" th:field="*{id}" />
+
+			<div class="form-group">
+				<label for="name">User Name:</label> <input type="text" id="name"
+					name="name" >
+			</div>
+			<div class="form-group">
+				<label for="name">Name:</label> <input type="text" id="name"
+					name="name" value="John">
+			</div>
+			<div class="form-group">
+				<label for="surname">Surname:</label> <input type="text"
+					id="surname" name="surname" value="Doe">
+			</div>
+			<div class="form-group">
+				<label for="email">Email:</label> <input type="email" id="email"
+					name="email" value="johndoe@example.com">
+			</div>
+			<a th:href="@{/}" class="btn btn-primary">Update</a> <a
+				th:href="@{/login}" class="btn btn-danger">Delete</a>
+
+			<!-- <button class="btn-delete">Delete</button> -->
+		</div>
+		<a th:href="@{/}"> Back To home page</a>
+	</div>
+	<!-- <button type="submit" class="btn btn-info col-2">Update</button> -->
+</body>
+</html>
